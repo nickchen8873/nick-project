@@ -1,0 +1,46 @@
+{% extends 'main/layout.html' %}
+{% block content %}
+
+<div class="col-md-9" id="div1">
+    <button class="btn btn-primary create-post style-jvp6q3ta" type="button" style="position: relative;"  onclick="location.href='/QA/'">
+        <div style="position: relative;display: inline-block;">BACK</div>
+    </button>
+    <div class="card" style="margin-top: 10px; padding: 10px">
+        <h6><a href="/users/profile/{{data.postedUser.username}}">{{data.postedUser}}</a></h6>
+        <h2>{{data.title}}</h2>
+        <div>{{ data.body|safe }}</div>
+        <hr>
+
+        <h3>回答</h3>
+        <form method="post">
+            {% load widget_tweaks %}
+            {% csrf_token %}
+            
+            {% render_field form.body class="form-control" %}
+            <div style="margin-left: auto;">
+                <button class="btn btn-primary create-post style-jvp6q3ta" type="submit" style="position: relative;width:100px;" onclick="location.href='/QA/'">
+                    <div style="position: relative;display: inline-block;">送出</div>
+                </button>
+            </div>
+        </form> 
+        
+
+
+        {% for data in anss%}   
+            <div class="card-body">
+                <div class="list">
+                    <p class="card-text">
+                        <div class="">
+                            <a href="/users/profile/{{data.postedUser.username}}">{{data.postedUser}}</a>
+                        </div>
+                        <div>
+                            <a><span style="white-space: pre-line">{{data.body}}</span></a>
+                        </div>
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}

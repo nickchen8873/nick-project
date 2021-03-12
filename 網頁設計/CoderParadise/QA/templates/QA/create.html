@@ -1,0 +1,30 @@
+{% extends 'main/layout.html' %}
+{% block content %}
+<form method="post" class="col-md-9" id="div1">
+    {% load widget_tweaks %}
+    {% csrf_token %}  
+    <div >
+        {{ form.non_field_errors }}
+
+        {% for hidden_field in form.hidden_fields %}
+            {{ hidden_field.errors }}
+            {{ hidden_field }}
+        {% endfor %}
+        <br>
+        <h4>標題</h4>
+        {% render_field form.title class="form-control"  placeholder=form.title.name %}
+        <br>
+        <h4>內容</h4>
+        {{form.body}}
+        <script>
+            $(".django-ckeditor-widget").removeAttr('style');
+        </script>
+        <br>
+        <h4>選擇語言</h4>
+        {% render_field form.questionType class="browser-default custom-select" %}
+        <br>
+        <br>
+        <input type="submit" class="btn btn-primary create-post style-jvp6q3ta" style="font-size: 25px" value="儲存" />
+    <div>
+</form>
+{% endblock content %}

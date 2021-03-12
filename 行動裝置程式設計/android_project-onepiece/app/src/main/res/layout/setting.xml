@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <Switch
+        android:id="@+id/musicOnSwitch"
+        android:layout_width="200dp"
+        android:layout_height="114dp"
+        android:layout_marginLeft="20dp"
+        android:checked="true"
+        android:text="Music"
+        android:textOff="No"
+        android:textOn="Yes"
+        android:textSize="50px" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="設定提醒考試時間"
+        android:id="@+id/remindQA"/>
+</LinearLayout>

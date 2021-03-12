@@ -1,0 +1,13 @@
+applications:
+  - path: .
+    domain: mybluemix.net
+    name: toneAnalyzeFP-web
+    host: toneAnalyzeFP-web
+    environment_json: {}
+    memory: 256M
+    instances: 1
+    disk_quota: 256M
+    services:
+      - Cloudant-ru
+      - Tone Analyzer-pf
+      - Language Translator-ax
